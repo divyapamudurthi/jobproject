@@ -1,11 +1,6 @@
-# Use the official Python image as a base
-FROM python:3.10-slim
-
-# Set the working directory in the container
+FROM python:3.9-slim
 WORKDIR /app
-
-# Copy the local code to the container image
-COPY main.py .
-
-# Command to run your application
+COPY . /app
+RUN pip install flask
+EXPOSE 8080
 CMD ["python", "main.py"]
