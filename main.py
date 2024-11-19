@@ -1,7 +1,11 @@
-import sys
+from flask import Flask
+app = Flask(__name__)
 
-def main():
-    print("Hello, World!")
+@app.route('/')
+def hello_world():
+    return "Hello, World! welcome to our page"
 
 if __name__ == "__main__":
-    main()
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
